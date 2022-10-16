@@ -39,9 +39,9 @@ The initial programs were run within the "PythonData" environment, and the Chall
 The programs for PlanMyTrip require use of APIs. The following were utilized:
 
 1. OpenWeather - Current weather API (API key required)
-2. Google Cloud - Geocoding API (API key required)
+2. Google Cloud - Maps JavaScript API (API key required)
 3. Google Cloud - Places API (API key required)
-4. Google Cloud - Maps JavaScript API (API key required)
+4. Google Cloud - Directions API (API key required)
 
 ## Summary
 ### Initial Programs
@@ -58,4 +58,8 @@ The other part of the program requests user input for the minimum and maximum de
 ### Challenge Programs
 At the recommendations of beta testers, PlanMyTrip has requested additional features, specifically the ability to prepare a travel itinerary that selects destinations based on weather patterns.
 
-The first deliverable, the Weather_Database program, works in a very similar way as the WeatherPy program. The program randomly generates coordinates (2,000 this time), lists out unique cities closest to those coordinates, retrieves the location and weather data after inputting the city name into the OpenWeather API, and processes the results into a DataFrame for export to a .csv file. One difference in the output this time is the retrieval of the weather description.
+The first deliverable, the Weather_Database program, works in a very similar way as the WeatherPy program. The program randomly generates coordinates (2,000 this time), lists out unique cities closest to those coordinates, retrieves the location and weather data after inputting the city name into the OpenWeather API, and processes the results into a DataFrame for export to the WeatherPy_Database.csv file. One difference in the output this time is the retrieval of the weather description.
+
+The second deliverable, the Vacation_Search program, also works in a very similar way as the VacationPy program. The program imports the WeatherPy_Database.csv output from the previous deliverable into a DataFrame, gets the minimum and maximum desired temperature inputs from the user, filters the DataFrame accordingly, and runs the results through the Google Places API to get the name of the nearest hotel. After cleaning the resulting DataFrame, the final product is exported into the WeatherPy_Vacation.csv file and also plotted in the marker layer on the global map using the Google Maps API. An info box system is incorporated to allow each marker to display the hotel name, location, and weather conditions. A screenshot is also included to illustrate this.
+
+The third deliverable, the Vacation_Itinerary program, is a new feature that uses the WeatherPy_Vacation.csv file from the second deliverable in the Google Directions API to draft a travel itinerary based on the temperature inputs. The itinerary is set up as a round trip through four cities that are reasonably desireable for visit, relatively close to each other, and within the same country. DataFrames are set up for each city, and the coordinates are extracted and input into the directions layer of the Google Maps plot to map out the travel path of the itinerary (Point E covers over Point A as the end city is the start city). The city DataFrames are combined to set up a marker layer with the four cities marked on the map. Screenshots of the proposed itinerary and the marked cities are included for illustration.
