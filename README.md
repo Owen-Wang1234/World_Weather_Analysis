@@ -57,3 +57,5 @@ The other part of the program requests user input for the minimum and maximum de
 
 ### Challenge Programs
 At the recommendations of beta testers, PlanMyTrip has requested additional features, specifically the ability to prepare a travel itinerary that selects destinations based on weather patterns.
+
+The first deliverable, the Weather_Database program, works in a very similar way as the WeatherPy program. The program randomly generates coordinates (2,000 this time), lists out unique cities closest to those coordinates, retrieves the location and weather data after inputting the city name into the OpenWeather API, and processes the results into a DataFrame for export to a .csv file. One difference in the output this time is the retrieval of the weather description.
